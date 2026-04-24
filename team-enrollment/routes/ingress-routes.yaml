@@ -31,7 +31,7 @@ spec:
     namespace: agentgateway-system
   rules:
   - backendRefs:
-    - name: grafana-prometheus
+    - name: kube-prometheus-leaf-2-grafana
       port: 3000
     matches:
     - path:
