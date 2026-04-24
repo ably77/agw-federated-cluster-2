@@ -1,6 +1,6 @@
 # AGW Federated GitOps -- Cluster 2 (Leaf-2)
 
-Developer self-service repository for leaf-2 (cluster3) in the [AGW Federated GitOps Reference Architecture](https://github.com/ably77/agentgateway-federated-gitops-ref-arch).
+Developer self-service repository for leaf-2 in the [AGW Federated GitOps Reference Architecture](https://github.com/ably77/agentgateway-federated-gitops-ref-arch).
 
 ## What Developers Can Do
 
