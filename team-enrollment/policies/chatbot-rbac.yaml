@@ -1,0 +1,39 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: enrollment-chatbot-mesh-demo
+rules:
+- apiGroups: ["security.istio.io"]
+  resources: ["authorizationpolicies"]
+  verbs: ["get", "list", "create", "update", "patch", "delete"]
+- apiGroups: [""]
+  resources: ["pods"]
+  verbs: ["get", "list"]
+- apiGroups: [""]
+  resources: ["services"]
+  verbs: ["get", "list", "patch"]
+- apiGroups: ["apps"]
+  resources: ["deployments"]
+  verbs: ["get", "list", "patch"]
+- apiGroups: ["apps"]
+  resources: ["deployments/scale"]
+  verbs: ["get", "update", "patch"]
+- apiGroups: ["networking.istio.io"]
+  resources: ["serviceentries"]
+  verbs: ["get", "list"]
+- apiGroups: ["enterpriseagentgateway.solo.io"]
+  resources: ["enterpriseagentgatewaypolicies"]
+  verbs: ["get", "list", "create", "apply", "patch", "delete"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: enrollment-chatbot-mesh-demo
+subjects:
+- kind: ServiceAccount
+  name: enrollment-chatbot
+  namespace: wgu-demo-frontend
+roleRef:
+  kind: ClusterRole
+  name: enrollment-chatbot-mesh-demo
+  apiGroup: rbac.authorization.k8s.io
